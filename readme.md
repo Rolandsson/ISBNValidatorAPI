@@ -7,8 +7,64 @@ Does not validate the existence of an ISBN, but instead implements the specifica
 - Maven 3.9.5
 - JUnit 5
 
+---
+
+## 2. Validation and isbn end-to-end tests
+
+If one wishes to try a variation of isbn validations then modify the contents of validISBNs and invalidISBNs in src/test/java/nu/rolandsson/ISBNValidator/controller/ISBNControllerTests.java in the beforeAll method **prepareTestData**
+```java
+@BeforeAll
+static void prepareTestData() {
+	
+	validISBNs = List.of(
+			"9185057819",
+			"9783161484100",
+			"1111111111",
+			"1111111111116"
+	);
+
+	invalidISBNs = List.of(
+			"9185057818",
+			"9783161484101",
+			"1111111112",
+			"1111111111115"
+	);
+	
+}
+```
+
 <details>
-  <summary><h2>2. Installation</h2></summary>
+	<summary>It will run the tests towards the endpoint **/isbn/{isbn sequences}** and verify that valid returns true and invalid returns false</summary>
+
+```java
+@Test
+void shouldReturnTrueForAllValidISBNTestData() throws Exception {
+	
+	for(String isbn : validISBNs) {
+		this.mockMvc
+			.perform(get("/isbn/" + isbn))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.valid").value(true));
+	}
+}
+
+@Test
+void shouldReturnFalseForAllInvalidISBNTestData() throws Exception {
+	for(String isbn : invalidISBNs) {
+		this.mockMvc
+			.perform(get("/isbn/" + isbn))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.valid").value(false));
+	}
+}
+```
+
+</details>
+
+---
+
+<details>
+  <summary><h2>3. Installation</h2></summary>
 
 Download git repository using preferred method.
 
@@ -30,12 +86,12 @@ mvnw package
 
 ---
 
-## 3. How to use
+## 4. How to use
 	
 Validate 10 or 13 isbn digit sequences using a simple API call. Currently only accessible locally, thus requiring local installation.
 
 <details>
-	<summary><h2>3.1 API Call</h2></summary>
+	<summary><h2>4.1 API Call</h2></summary>
 	
 ```note
 http://localhost:{port}/isbn/{isbn sequence}
@@ -44,7 +100,7 @@ http://localhost:{port}/isbn/{isbn sequence}
 ### Parameters
 - *isbn sequence* (required!) a sequence of 10 or 13 digits representating isbn strings
 
-#### 3.1.2 Example API Call
+#### 4.1.2 Example API Call
 The api currently does not support the 9-digit format, thus 0 should be added infront of a 9-digit isbn to ensure compatibility.
 
 **ISBN 10**
@@ -57,8 +113,7 @@ http://localhost:9090/isbn/9185057819
 http://localhost:9090/isbn/9783161484100
 ```
 
-
-### 3.2 Example API response
+### 4.2 Example API response
 For a ISBN 13 valid request
 ```json
 {
@@ -75,9 +130,11 @@ For a ISBN 13 valid request
 }
 ```
 
-#### 3.2.1 Field response description
+#### 4.2.1 Field response description
 - *value* reduced representation of input value
 - *type* the isbn type that was identified by the api, expected values are ISBN10 and ISBN13
 - *parts* isbn parts of the digit sequence as specified by international isbn agency
 
 </details>
+
+---
