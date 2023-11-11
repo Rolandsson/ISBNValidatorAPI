@@ -1,13 +1,13 @@
 # ISBN Validation API
 Does not validate the existence of an ISBN, but instead implements the specification validation algorithm for isbn10 and isbn13
 
-## Versions
+## 1. Versions
 - Java 17
 - Spring boot 3.15
 - Maven 3.9.5
 
 <details>
-  <summary><h2>Installation</h2></summary>
+  <summary><h2>2. Installation</h2></summary>
 
 Download git repository using preferred method.
 
@@ -29,12 +29,13 @@ mvnw package
 
 ---
 
-## How to use
+## 3. How to use
 	
 Validate 10 or 13 isbn digit sequences using a simple API call. Currently only accessible locally, thus requiring local installation.
 
 <details>
-	<summary><h2>API Call</h2></summary>
+	<summary><h2>3.1 API Call</h2></summary>
+	
 ```note
 http://localhost:{port}/isbn/{isbn sequence}
 ```
@@ -42,7 +43,7 @@ http://localhost:{port}/isbn/{isbn sequence}
 ### Parameters
 - *isbn sequence* (required!) a sequence of 10 or 13 digits representating isbn strings
 
-#### Example API Call
+#### 3.1.2 Example API Call
 The api currently does not support the 9-digit format, thus 0 should be added infront of a 9-digit isbn to ensure compatibility.
 
 **ISBN 10**
@@ -56,7 +57,7 @@ http://localhost:9090/isbn/9783161484100
 ```
 
 
-### Example API response
+### 3.2 Example API response
 For a ISBN 13 valid request
 ```json
 {
@@ -73,7 +74,7 @@ For a ISBN 13 valid request
 }
 ```
 
-#### Field response description
+#### 3.2.1 Field response description
 - *value* reduced representation of input value
 - *type* the isbn type that was identified by the api, expected values are ISBN10 and ISBN13
 - *parts* isbn parts of the digit sequence as specified by international isbn agency
