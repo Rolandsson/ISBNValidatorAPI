@@ -34,7 +34,7 @@ static void prepareTestData() {
 ```
 
 <details>
-	<summary>It will run the tests towards the endpoint **/isbn/{isbn sequences}** and verify that valid returns true and invalid returns false</summary>
+	<summary>It will run the tests towards the endpoint <em>/isbn/{isbn sequences}</em> and verify that valid returns true and invalid returns false</summary>
 
 ```java
 @Test
