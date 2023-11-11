@@ -33,7 +33,7 @@ http://localhost:{port}/isbn/{isbn sequence}
 ```
 
 #### Parameters
-- isbn sequence (required!) \t a sequence of 10 or 13 digits representating isbn strings
+- *isbn sequence* (required!) a sequence of 10 or 13 digits representating isbn strings
 
 #### Example API Call
 The api currently does not support the 9-digit format, thus 0 should be added infront of a 9-digit isbn to ensure compatibility.
