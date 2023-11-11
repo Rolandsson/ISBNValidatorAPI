@@ -66,7 +66,7 @@ For a ISBN 13 valid request
 ```
 
 #### Field response description
-- value \t\t reduced representation of input value
-- type \t\t the isbn type that was identified by the api, expected values are ISBN10 and ISBN13
-- parts \t\t isbn parts of the digit sequence as specified by international isbn agency
+- *value* reduced representation of input value
+- *type* the isbn type that was identified by the api, expected values are ISBN10 and ISBN13
+- *parts* isbn parts of the digit sequence as specified by international isbn agency
 
