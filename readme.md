@@ -5,6 +5,7 @@ Does not validate the existence of an ISBN, but instead implements the specifica
 - Java 17
 - Spring boot 3.15
 - Maven 3.9.5
+- JUnit 5
 
 <details>
   <summary><h2>2. Installation</h2></summary>
