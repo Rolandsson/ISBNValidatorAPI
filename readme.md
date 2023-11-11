@@ -6,7 +6,9 @@ Does not validate the existence of an ISBN, but instead implements the specifica
 - Spring boot 3.15
 - Maven 3.9.5
 
-## Installation
+<details>
+  <summary><h2>Installation</h2></summary>
+
 Download git repository using preferred method.
 
 **Run executable jar**
@@ -23,16 +25,21 @@ mvnw spring-boot:run
 ```bash
 mvnw package
 ```
+</details>
+
+---
 
 ## How to use
+	
 Validate 10 or 13 isbn digit sequences using a simple API call. Currently only accessible locally, thus requiring local installation.
 
-### API Call
+<details>
+	<summary><h2>API Call</h2></summary>
 ```note
 http://localhost:{port}/isbn/{isbn sequence}
 ```
 
-#### Parameters
+### Parameters
 - *isbn sequence* (required!) a sequence of 10 or 13 digits representating isbn strings
 
 #### Example API Call
@@ -43,12 +50,13 @@ The api currently does not support the 9-digit format, thus 0 should be added in
 http://localhost:9090/isbn/9185057819
 ```
 
-***ISBN 13**
+**ISBN 13**
 ```note
 http://localhost:9090/isbn/9783161484100
 ```
 
-#### Example API response
+
+### Example API response
 For a ISBN 13 valid request
 ```json
 {
@@ -70,3 +78,4 @@ For a ISBN 13 valid request
 - *type* the isbn type that was identified by the api, expected values are ISBN10 and ISBN13
 - *parts* isbn parts of the digit sequence as specified by international isbn agency
 
+</details>
