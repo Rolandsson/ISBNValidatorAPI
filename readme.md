@@ -1,5 +1,5 @@
 # ISBN Validation API
-Does not validate the existence of an ISBN, but instead implements the specification validation algorithm for isbn10 and isbn13
+Does not verify the existence of an ISBN, but instead implements the specification validation algorithm for isbn10 and isbn13
 
 ## 1. Versions
 - Java 17
