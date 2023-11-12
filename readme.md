@@ -11,7 +11,7 @@ Does not validate the existence of an ISBN, but instead implements the specifica
 
 ## 2. Validation and isbn end-to-end tests
 
-If one wishes to try a variation of isbn validations then modify the contents of validISBNs and invalidISBNs in **src/test/java/nu/rolandsson/ISBNValidator/controller/ISBNControllerTests.java** in the beforeAll method *prepareTestData*
+Try a variation of isbn validations by modifying the contents of validISBNs and invalidISBNs in **src/test/java/nu/rolandsson/ISBNValidator/controller/ISBNControllerTests.java** in the beforeAll method *prepareTestData*
 ```java
 @BeforeAll
 static void prepareTestData() {
