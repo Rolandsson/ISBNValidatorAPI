@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 import nu.rolandsson.ISBNValidator.exception.BadISBNRequestException;
 
 /**
- * Class represents ISBN client error messages
+ * Class represents ISBN client error messages. Should remain flexible enough to handle an expanding need for error handling
  */
 public class BadSequenceError {
 	
@@ -17,8 +17,7 @@ public class BadSequenceError {
 	
 	/**
 	 * Construct an error message based on ISBN sequence and redundancy pattern
-	 * @param sequence ISBN text
-	 * @param acceptedFormat String representation of Pattern output
+	 * @param ex contains information about redudancy pattern, formatted sequence and patterns that the api may accept
 	 */
 	public BadSequenceError(BadISBNRequestException ex) {
 		this.sequence = ex.getFormattedSequence();
