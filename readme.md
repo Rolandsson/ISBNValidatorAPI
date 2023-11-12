@@ -63,8 +63,7 @@ void shouldReturnFalseForAllInvalidISBNTestData() throws Exception {
 
 ---
 
-<details>
-  <summary><h2>3. Installation</h2></summary>
+## 3. Installation
 
 Download git repository using preferred method.
 
@@ -82,7 +81,6 @@ mvnw spring-boot:run
 ```bash
 mvnw package
 ```
-</details>
 
 ---
 
@@ -90,17 +88,17 @@ mvnw package
 	
 Validate 10 or 13 isbn digit sequences using a simple API call. Currently only accessible locally, thus requiring local installation.
 
-<details>
-	<summary><h2>4.1 API Call</h2></summary>
+
+### 4.1 API Call
 	
 ```note
 http://localhost:{port}/isbn/{isbn sequence}
 ```
 
-### Parameters
+#### Parameters
 - *isbn sequence* (required!) a sequence of 10 or 13 digits representating isbn strings
 
-#### 4.1.2 Example API Call
+### 4.2 Example API Call
 The api currently does not support the 9-digit format, thus 0 should be added infront of a 9-digit isbn to ensure compatibility.
 
 **ISBN 10**
@@ -113,7 +111,7 @@ http://localhost:9090/isbn/9185057819
 http://localhost:9090/isbn/9783161484100
 ```
 
-### 4.2 Example API response
+### 4.3 Example API response
 For a ISBN 13 valid request
 ```json
 {
@@ -130,11 +128,10 @@ For a ISBN 13 valid request
 }
 ```
 
-#### 4.2.1 Field response description
+#### Field response description
 - *value* reduced representation of input value
 - *type* the isbn type that was identified by the api, expected values are ISBN10 and ISBN13
 - *parts* isbn parts of the digit sequence as specified by international isbn agency
 
-</details>
 
 ---
