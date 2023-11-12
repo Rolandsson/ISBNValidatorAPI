@@ -13,9 +13,10 @@ public class BadISBNRequestException extends RuntimeException {
 	private Pattern redundancyPattern;
 	
 	/**
-	 * Invalid sequence length provides information about what sequence that was used and which redundancy pattern that can be used
+	 * BadISBNRequestException handles incorrect length or format for provided isbn sequence. It provides information about what sequence that was used and which redundancy pattern that can be used
 	 * @param formattedSequence the formatted sequence to be used in an error message
-	 * @param acceptedPattern the redundancy pattern that was used to filter invalid tokens
+	 * @param redundancyPattern the redundancy pattern that was used to filter invalid tokens
+	 * @param acceptedPatterns the regex for valid isbn sequences used in by the api
 	 */
 	public BadISBNRequestException(String formattedSequence, Pattern redundancyPattern, Pattern[] acceptedPatterns) {
 		super("Bad ISBN for sequence: " + formattedSequence);
