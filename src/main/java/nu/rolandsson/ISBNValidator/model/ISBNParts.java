@@ -9,6 +9,11 @@ import nu.rolandsson.ISBNValidator.type.SequenceType;
 
 @JsonInclude(Include.NON_NULL)
 public class ISBNParts {
+	private String ean;
+	private String group;
+	private String publisher;
+	private String title;
+	private String checkDigit;
 	
 	public ISBNParts(SequenceType type, String[] parts) {
 		
@@ -25,12 +30,6 @@ public class ISBNParts {
 			this.checkDigit = parts[12];
 		}
 	}
-	
-	private String ean;
-	private String group;
-	private String publisher;
-	private String title;
-	private String checkDigit;
 	
 	public String getEan() {
 		return this.ean;
