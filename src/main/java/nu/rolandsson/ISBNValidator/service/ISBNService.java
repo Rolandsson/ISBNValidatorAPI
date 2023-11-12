@@ -12,6 +12,10 @@ import nu.rolandsson.ISBNValidator.model.ISBN;
 import nu.rolandsson.ISBNValidator.model.ISBN10;
 import nu.rolandsson.ISBNValidator.model.ISBN13;
 
+/**
+ * Handles business logic of ISBN validations
+ * ISBN should be of length 10 or 13 and before being validated should only contain digits. ISBN10 can also contain "x" as check-digit.
+ */
 @Service("isbnService")
 public class ISBNService {
 	
@@ -26,6 +30,11 @@ public class ISBNService {
 	@Autowired
 	private Pattern validFormattedISBN13Pattern;
 
+	/**
+	 * Validates isbn format and ensures compatibility with isbn10 and isbn13. May throw BasISBNRequestException if invalid format or incorrect sequence length
+	 * @param sequence of either isbn10 or isbn13
+	 * @return ISBN representation of the provided sequence. Also contains a valid flag.
+	 */
 	public ISBN validate(String sequence) {
 		String reducedSequence = isbnRedudantPattern.matcher(sequence).replaceAll("");
 		
